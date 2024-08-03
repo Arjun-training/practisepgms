@@ -13,6 +13,7 @@ public class RevEachWord {
 				revs3=revs3+s3.charAt(j);
 			}
 			revStr+=revs3+" ";
+		
 		}
 		System.out.println(revStr);
 		

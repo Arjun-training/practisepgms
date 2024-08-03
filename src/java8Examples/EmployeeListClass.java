@@ -1,13 +1,17 @@
 package java8Examples;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -94,6 +98,8 @@ public class EmployeeListClass {
 	
 	System.out.println();
 	System.out.println(detailsOfYoungMaleEmpInProductDev.get());
+	Employee youngestMale=employeeList.stream().filter(e1->e1.getDepartment()=="Product Development").sorted(Comparator.comparingInt(Employee::getAge)).findFirst().get();
+	System.out.println(youngestMale);
 	System.out.println();
 	System.out.println("Who has the most working experience in the organization?");
 	System.out.println();
@@ -117,7 +123,7 @@ public class EmployeeListClass {
 	System.out.println();
 	System.out.println("List down the names of all employees in each department?");
 	//Employee ez=(Employee) employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
-	
+	//employeeList.stream().map(Employee::getName).collect(Collectors.groupingBy(Employee::getDepartment));
 	Map<String,List<Employee>> namesOfEmpByDept=employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 	Set<Entry<String,List<Employee>>> ss=namesOfEmpByDept.entrySet();
 	for(Map.Entry<String, List<Employee>> s1:ss) {
@@ -143,15 +149,28 @@ public class EmployeeListClass {
 	System.out.println();
 	System.out.println("Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years");
 	System.out.println();
-	employeeList.stream().filter(e6->e6.getAge()<=25).map(Employee::getName).forEach(System.out::println);
+	employeeList.stream().filter(e6->e6.getAge()<=25).forEach(System.out::println);
 	Stream<String> op=employeeList.stream().filter(e6->e6.getAge()<=25).map(Employee::getName);
 
-	System.out.println(op);
+	//System.out.println(op);
 	
 	
 	/*System.out.println("options(of) and (ofnullbale()");
 	System.out.println(Optional.of(employeeList).get());
 	System.out.println(Optional.ofNullable(employeeList).get());*/
+	System.out.println("find out years of experience ");
+	System.out.println();
+	employeeList.stream().filter(k->LocalDate.now().getYear()-k.getYearOfJoining()>=10).map(Employee::getName).forEach(System.out::println);
 	
+	Random r= new Random();
+	//r.ints(10,100).limit(7).sorted().forEach(System.out::println);
+	//r.ints(10,100).limit(5).max().ifPresent(s->System.out.println(s));
+	//r.ints(10,100).limit(2).filter(i->i%2==0).sorted().forEach(System.out::println);
+	Function<Integer,Integer> f=i->(i*i); 
+	//	f.apply(1);
+		//System.out.println(f.apply(2));
+
+		DoubleSummaryStatistics dn=employeeList.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
+		//System.out.println(dn.getMax());
 	}
 }

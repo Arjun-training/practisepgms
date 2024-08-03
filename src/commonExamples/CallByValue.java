@@ -11,7 +11,7 @@ public class CallByValue {
 	}
 	private void change(CallByValue a1) {
 		// TODO Auto-generated method stub
-		a1.a=a1.a+300;
+		a1.a+=300;
 		//System.out.println(a);
 	}
 

@@ -32,6 +32,24 @@ public class GeneratePrimeNo {
 		}
 		//System.out.println(ll);
 		
+		/*int n=19;
+		Boolean b = true;
+		if(n==0&n==1) {
+			b=false;
+		}
+			for(int i=2;i<n;i++) {
+				int c=0;
+
+				for(int j=i;j>=1;j--) {
+					
+					if(i%j==0)
+						c++;
+					
+				}
+				if(c==2)
+					System.out.println(i);
+			}*/
+		
 	}
 
 }

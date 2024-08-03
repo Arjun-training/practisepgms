@@ -11,7 +11,8 @@ public class HighestNumber {
 public static void main(String[] args) {
 
 
-	int[] a= {10,5,3,10,5,22,5,24,5};
+	//int[] a= {10,5,3,10,5,22,5,24,5};
+	int a[]= {10,20,40,3,90};
 	int highest=0;
 	int secondHighest=0;
 	for(int i=0;i<a.length;i++) {

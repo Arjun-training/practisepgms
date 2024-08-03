@@ -1,6 +1,7 @@
 package commonExamples;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -60,7 +61,8 @@ public class DuplicateNumbers {
 		for(int i=0;i<a.length;i++) {
 			//System.out.println(a[i]+" repeated "+count+ " times");
 		}
-		
+	/*	long c=l.stream().filter(k->Collections.frequency(l, k)>1).distinct().count();
+		System.out.println(c);*/
 	}
 	
 }

@@ -15,7 +15,17 @@ public class CapFEcahword {
 			capFirstLetter=before+after+" ";
 			System.out.println(capFirstLetter);
 		}
-		System.out.println(capFirstLetter);
+		//System.out.println(capFirstLetter);
+		
+		/*String s="this is arjun";
+		String[] s1=s.split(" ");
+		String fl="";
+		for(int i=0;i<s1.length;i++) {
+			fl=s1[i].substring(0,1).toUpperCase();
+			fl=fl+s1[i].substring(1,s1[i].length());
+			System.out.println(fl);
+		}*/
+		
 	}
 
 }
